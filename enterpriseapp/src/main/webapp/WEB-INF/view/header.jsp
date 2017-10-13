@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +13,6 @@
 <body>
 
 
-
 <nav class="navbar navbar-inverse  ">
 <div class="container">
 
@@ -21,32 +22,55 @@
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="https://www.google.co.in/">All-In-One-Bazar</a>
+<a class="nav navbar-nav navbar-left navbar-brand" href="#">All-In-One-Bazar</a>
 <div class="navbar-collapse collapse">
 <ul class=" nav navbar-nav navbar-left"> 
-<li class="active"><a href="#" >Home</a></li>
+<li ><a href="home" >Home</a></li>
 
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Caterory<b class="caret"></b></a>
 <ul class="dropdown-menu">
-<li class="dropdown-header">Electronics </li>
-<li><a href="#">Laptop</a></li>
-<li><a href="#">Mobile</a></li>
-<li class="dropdown-header">Attire</li>
-<li><a href="#">Mens</a></li>
-<li><a href="#">Women</a></li>
+<c:forEach var="li" items="${categoryList}">
+<li><a href="#">${li.categoryName}</a></li>
+</c:forEach>
 </ul>
 </li>
-<li><a href="#">Current Trends</a></li>
-<li><a href="#">Deals</a></li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMINCONTROL<b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="#">Product</a></li>
+<li><a href="category">Category</a></li>
+<li><a href="#">Supplier</a></li>
 </ul>
+</li>
 
+</ul>
+<form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+</form>
 <ul class=" nav navbar-nav navbar-right">
-<li><a href="#">Sign-in</a></li>
-<li><a href="#">Logout</a></li>
+<li><a href="signup"><span class="glyphicon glyphicon-user"></span>Signup</a></li>
+<li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span>Log-in</a></li>
+<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
 
 </ul>
 </div>
+</div>
 </nav>
 
-</body>
-</html>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div>
+    </div>
+
+  </div>
+</div>
+

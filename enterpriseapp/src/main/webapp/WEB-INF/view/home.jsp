@@ -1,18 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="sc"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-</head>
-<body>
-<jsp:include page="/WEB-INF/view/header.jsp"></jsp:include>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="sc"%>
+<%@ include file="/WEB-INF/view/header.jsp" %>
 <%@ include file="/WEB-INF/view/footer.jsp" %>
 
 	<div id="mycarousel" class="carousel slide" data-ride="carousel"
-		data-interval="2000">
+		data-interval="5000">
 		<ol class="carousel-indicators">
 			<li data-target-="#mycarousel" data-slide-to="0" class="active"></li>
 			<li data-target-="#mycarousel" data-slide-to="1"></li>
@@ -40,7 +32,3 @@
     <span class="sr-only">Next</span>
   </a>
 	</div>
-
-
-</body>
-</html>
