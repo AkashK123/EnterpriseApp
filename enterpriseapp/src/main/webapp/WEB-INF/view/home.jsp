@@ -1,7 +1,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="sc"%>
 <%@ include file="/WEB-INF/view/header.jsp" %>
-<%@ include file="/WEB-INF/view/footer.jsp" %>
+
 
 	<div id="mycarousel" class="carousel slide" data-ride="carousel"
 		data-interval="5000">
@@ -32,3 +32,4 @@
     <span class="sr-only">Next</span>
   </a>
 	</div>
+<%@ include file="/WEB-INF/view/footer.jsp" %>

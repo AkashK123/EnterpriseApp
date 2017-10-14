@@ -5,15 +5,15 @@
 <div class="form-group">
          <table>
             <tr>
-               <td><form:label path = "id">ID</form:label></td>
+               <td><form:label path = "id">ID:</form:label></td>
                <td><form:input required="true" path = "id" /></td>
             </tr>
             <tr>
-               <td><form:label path = "categoryName">Category Name</form:label></td>
+               <td><form:label path = "categoryName">Category Name:</form:label></td>
                <td><form:input required="true" path = "categoryName" /></td>
             </tr>
             <tr>
-               <td><form:label path = "categoryDescription">Category Description</form:label></td>
+               <td><form:label path = "categoryDescription">Category Description:</form:label></td>
                <td><form:input required="true" path = "categoryDescription" /></td>
             </tr>
             </table>
@@ -37,7 +37,7 @@
 <th>ID</th>
 <th>CATEGORY NAME</th>
 <th>CATEGORY DESCRIPTION</th>
-<th>Update or Delete</th>
+<th>UPDATE OR DELETE</th>
 </tr>
 <c:forEach var="li" items="${categorylist}">
 <tr>

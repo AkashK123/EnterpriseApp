@@ -30,9 +30,10 @@ public class CategoryController
 	return new ModelAndView("category","categorylist",list);
 	}
 	@RequestMapping(value="/addcategory")
-	public ModelAndView addCategoryOpreation(@ModelAttribute Category category,Model m,HttpSession hs)
+	public ModelAndView addCategoryOpreation(@ModelAttribute("category") Category category,Model m,HttpSession hs)
 	{
 		categroyDao.addCategory(category);
+		//Update for Category List
 		hs.removeAttribute("categoryList");
 		List<Category> list=categroyDao.retriveCategory();
 		hs.setAttribute("categoryList", list);
@@ -45,6 +46,7 @@ public class CategoryController
 	{
 		categroyDao.deleteCategory(id);
 		List<Category> list=categroyDao.retriveCategory();
+		m.addAttribute("status","add");
 		m.addAttribute("category", new Category());
 	return new ModelAndView("category","categorylist",list);
 	}
@@ -60,7 +62,7 @@ public class CategoryController
 	}
 	
 	@RequestMapping(value="/updateCategoryData")
-	public ModelAndView updateCategoryData(@ModelAttribute Category category,Model m)
+	public ModelAndView updateCategoryData(@ModelAttribute("category") Category category,Model m)
 	{
 		categroyDao.updateCategory(category);
 		List<Category> list=categroyDao.retriveCategory();
