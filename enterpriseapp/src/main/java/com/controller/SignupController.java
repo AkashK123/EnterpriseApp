@@ -1,17 +1,30 @@
 package com.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.project.model.Category;
+import com.project.dao.RegistrationFormDao;
+import com.project.model.RegistrationForm;
 
 @Controller
 public class SignupController 
-{
+{	
+	@Autowired
+	RegistrationFormDao registrationFormDao;
 	@RequestMapping(value="/signup")
-	public ModelAndView formpage()
+	public String formpage(Model m)
 	{
-		return new ModelAndView("signup", "category", new Category());
-	}	
+		m.addAttribute("registrationForm", new RegistrationForm());
+		return "signup";
+	}
+	@RequestMapping(value="/register")
+	public String registerOperation(@ModelAttribute("registrationForm") RegistrationForm registrationForm,Model m)
+	{
+		registrationFormDao.createUser(registrationForm);
+		m.addAttribute("registrationForm", new RegistrationForm());
+		return "signup";
+	}
 }

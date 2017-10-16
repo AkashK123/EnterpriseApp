@@ -8,8 +8,7 @@ public class RegistrationForm
 {
 	@Id
 	String email;
-	String fname;
-	String lname;
+	String name;
 	String contact;
 	String gender;
 	String country;
@@ -22,12 +21,11 @@ public class RegistrationForm
 		
 	}
 
-	public RegistrationForm(String email, String fname, String lname, String contact, String gender, String country,
-			String address, String password, String confirmPassword, String dob) {
+	public RegistrationForm(String email, String name, String contact, String gender, String country, String address,
+			String password, String confirmPassword, String dob) {
 		super();
 		this.email = email;
-		this.fname = fname;
-		this.lname = lname;
+		this.name = name;
 		this.contact = contact;
 		this.gender = gender;
 		this.country = country;
@@ -45,20 +43,12 @@ public class RegistrationForm
 		this.email = email;
 	}
 
-	public String getFname() {
-		return fname;
+	public String getName() {
+		return name;
 	}
 
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-	public String getLname() {
-		return lname;
-	}
-
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getContact() {
@@ -117,5 +107,5 @@ public class RegistrationForm
 		this.dob = dob;
 	}
 	
-		
+	
 }

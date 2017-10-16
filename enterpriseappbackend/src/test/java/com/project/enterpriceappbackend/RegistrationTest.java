@@ -30,9 +30,8 @@ public class RegistrationTest {
     	registrationForm.setContact("9769841882");
     	registrationForm.setCountry("India");
     	registrationForm.setEmail("akashkumarmohan1996@gmail.com");
-    	registrationForm.setFname("Akash");
+    	registrationForm.setName("Akash");
     	registrationForm.setGender("Male");
-    	registrationForm.setLname("Kumar");
     	registrationForm.setPassword("akash");
     	registrationForm.setConfirmPassword("akash");
     	registrationForm.setDob("06/03/1996");
@@ -52,9 +51,8 @@ public class RegistrationTest {
     	registrationForm.setContact("9769841882");
     	registrationForm.setCountry("India");
     	registrationForm.setEmail("akashkumarmohan1751@gmail.com");
-    	registrationForm.setFname("Akash");
+    	registrationForm.setName("Akash");
     	registrationForm.setGender("Male");
-    	registrationForm.setLname("Kumar");
     	registrationForm.setPassword("akash");
     	registrationForm.setConfirmPassword("akash");
     	registrationForm.setDob("06/03/1996");
@@ -84,7 +82,7 @@ public class RegistrationTest {
 			RegistrationForm registrationForm=new RegistrationForm();
 			registrationForm.setEmail("akashkumarmohan1996@gmail.com");
 			RegistrationForm registrationForm1=registrationFormDao.getUser(registrationForm.getEmail());
-			System.out.println(registrationForm1.getFname());
+			System.out.println(registrationForm1.getName());
 			System.out.println(registrationForm1.getDob());
 		}
 		catch(Exception e)

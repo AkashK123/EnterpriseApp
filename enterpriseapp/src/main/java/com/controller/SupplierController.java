@@ -65,13 +65,13 @@ public String updateSupplierOperation(@PathVariable("id") int id,Model m)
 	return "supplier";
 }
 
-@RequestMapping(value="/updatesupplier")
+@RequestMapping(value="/updatesupplierdata")
 public String updateSupplierData(@ModelAttribute("supplier") Supplier supplier,Model m)
 {
 	supplierDao.updateSupplier(supplier);
 	List<Supplier> list=supplierDao.retrieveSupplier();
 	m.addAttribute("status", "add");
-	m.addAttribute("supplier", supplier);
+	m.addAttribute("supplier", new Supplier());
 	m.addAttribute("supplierList",list);
 	return "supplier";
 }

@@ -51,15 +51,18 @@ public class CategoryController
 	return new ModelAndView("category","categorylist",list);
 	}
 	
-	@RequestMapping(value="/updateCategory{id}")
-	public ModelAndView updateCategoryOpreation(@PathVariable("id") int id,Model m)
-	{
-		Category category=categroyDao.getCategory(id);
-		List<Category> list=categroyDao.retriveCategory();
-		m.addAttribute("status","update");
-		m.addAttribute("category", category);
-	return new ModelAndView("category","categorylist",list);
-	}
+
+@RequestMapping(value="/updateCategory{id}")
+public String updateCategoryOperation(@PathVariable("id") int id,Model m)
+{
+	Category category=categroyDao.getCategory(id);
+	List<Category> list=categroyDao.retriveCategory();
+	m.addAttribute("category", category);
+	m.addAttribute("status", "update");
+	m.addAttribute("categorylist",list);
+	return "category";
+}
+
 	
 	@RequestMapping(value="/updateCategoryData")
 	public ModelAndView updateCategoryData(@ModelAttribute("category") Category category,Model m)
@@ -67,7 +70,7 @@ public class CategoryController
 		categroyDao.updateCategory(category);
 		List<Category> list=categroyDao.retriveCategory();
 		m.addAttribute("status","add");
-		m.addAttribute("category", category);
+		m.addAttribute("category", new Category());
 	return new ModelAndView("category","categorylist",list);
 	}
 	

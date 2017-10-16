@@ -13,8 +13,8 @@
 </tr>
 
 <tr>
-<td><form:label path="productDescription">Description</form:label></td>
-<td><form:input required="true" path="productDescription"/></td>
+<td><form:label path="productDescription">Description:</form:label></td>
+<td><form:textarea required="true" path="productDescription"/></td>
 </tr>
 
 <tr>
@@ -23,12 +23,12 @@
 </tr>
 
 <tr>
-<td><form:label path="productPrice">Price</form:label></td>
+<td><form:label path="productPrice">Price:</form:label></td>
 <td><form:input required="true" path="productPrice"/></td>
 </tr>
 
 <tr>
-<td><form:label path="categoryId">Category</form:label></td>
+<td><form:label path="categoryId">Category:</form:label></td>
 <td><form:select path="categoryId">
 <c:forEach var="list" items="${categoryList}">
 <form:option value="${list.id}">${list.categoryName}</form:option>
@@ -48,13 +48,20 @@
 </tr>
 </table>
 <br/>
+
+<c:if var="var" test="${status.equals('add')}"/>
+<c:if test="${var==true}">
 <button type="submit" class="btn btn-info" formaction="addproduct">Add New Product</button>
+</c:if>
+<c:if test="${var==false}">
+<button type="submit" class="btn btn-info" formaction="updateproductdata">Update Product</button>
+</c:if>
 </form:form>
 
 <h1>PRODUCT MODULE</h1>
 <form:form modelAttribute="product">
 <table class="table table-bordered">
-<tr>
+<tr bgcolor="lightblue">
 <th>ID</th>
 <th>NAME</th>
 <th>DESCRIPTION</th>
@@ -65,18 +72,24 @@
 <th>UPDATE OR DELETE</th>
 </tr>
 <c:forEach var="list" items="${productList}">
-<tr class="form-group">
-<td><form:input type="text" class="form-control" path="id" value="${list.id}" /></td>
-<td><form:input type="text" class="form-control" path="productName" value="${list.productName}" /></td>
-<td><form:input type="text" class="form-control" path="productDescription" value="${list.productDescription}" /></td>
-<td><form:input type="text" class="form-control" path="productStock" value="${list.productStock}" /></td>
-<td><form:input type="text" class="form-control" path="productPrice" value="${list.productPrice}" /></td>
-<td><form:input type="text" class="form-control" path="categoryId" value="${list.categoryId}" /></td>
-<td><form:input type="text" class="form-control" path="supplierId" value="${list.supplierId}" /></td>
-<td>
-<button type="submit" class="btn btn-info btn-xs" formaction = "updateproduct">Update</button>
-<button type="submit" class="btn btn-info btn-xs" formaction = "deleteproduct">Delete</button>
-</td>
+<tr>
+<td>${list.id}</td>
+<td>${list.productName}</td>
+<td>${list.productDescription}</td>
+<td>${list.productStock}</td>
+<td>${list.productPrice}</td>
+
+<c:forEach var="catlist" items="${categoryList}">
+<c:if var="catvar" test="${list.categoryId==catlist.id}"/>
+<c:if test="${catvar==true}">
+<td>${catlist.categoryName}</td>
+</c:if>
+<c:if test="${catvar==false}">
+</c:if>
+</c:forEach>
+
+<td>${list.supplierId}</td>
+<td><a href="<c:url value="updateproduct${list.id}"/>">Update</a>/<a href="<c:url value="deleteproduct${list.id}"/>">Delete</a></td>
 </tr>
 </c:forEach>
 </table>

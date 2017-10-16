@@ -1,8 +1,6 @@
 <%@ include file="/WEB-INF/view/header.jsp" %>
 <center>
 <form:form  modelAttribute="category">
-
-<div class="form-group">
          <table>
             <tr>
                <td><form:label path = "id">ID:</form:label></td>
@@ -19,16 +17,7 @@
             </table>
             <br/>
             
-   <c:if var="var" test="${status.equals('add')}"/>
-        <c:if test="${var==true}">
-			<button type="submit" class="btn btn-info" formaction = "addcategory">Add New Category</button>
-        </c:if>
-        
-        <c:if test="${var==false}">
-			<button type="submit" class="btn btn-info" formaction = "updateCategoryData">Update Category</button>
-        </c:if>
-        
-         </div> 
+ 	<button type="submit" class="btn btn-info" formaction = "addcategory">Add New Category</button>
       </form:form>
 <h1>CATEGORY MODULE</h1>
 <div class="container">
@@ -39,13 +28,19 @@
 <th>CATEGORY DESCRIPTION</th>
 <th>UPDATE OR DELETE</th>
 </tr>
-<c:forEach var="li" items="${categorylist}">
-<tr>
-<td>${li.id}</td>
-<td>${li.categoryName}</td>
-<td>${li.categoryDescription}</td>
-<th><a href="<c:url value="updateCategory${li.id}"/>">Update</a>/<a href="<c:url value="deleteCategory${li.id}"/>">Delete</a></th>
+<c:forEach var="list" items="${categorylist}">
+<form:form modelAttribute="category">
+<tr class="form-group">
+<td><form:input type="text" class="form-control" path="id" value="${list.id}" /></td>
+<td><form:input type="text" class="form-control" path="categoryName" value="${list.categoryName}" /></td>
+<td><form:input type="text" class="form-control" path="categoryDescription" value="${list.categoryDescription}" /></td>
+<td>
+<button type="submit" class="btn btn-info btn-xs" formaction = "updateCategoryData">Update</button>
+<button type="submit" class="btn btn-info btn-xs" formaction = "deleteCategory${list.id}">Delete</button>
+</td>
 </tr>
+</form:form>
+
 </c:forEach>
 </table>
 </div>
