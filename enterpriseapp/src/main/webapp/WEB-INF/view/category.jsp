@@ -16,9 +16,15 @@
             </tr>
             </table>
             <br/>
+ <c:if var="var" test="${status.equals('add')}"/>
+<c:if test="${var==true}">
+<button type="submit" class="btn btn-info" formaction="addcategory">Add New Product</button>
+</c:if>
+<c:if test="${var==false}">
+<button type="submit" class="btn btn-info" formaction="updateCategoryData">Update Product</button>
+</c:if>
+</form:form>
             
- 	<button type="submit" class="btn btn-info" formaction = "addcategory">Add New Category</button>
-      </form:form>
 <h1>CATEGORY MODULE</h1>
 <div class="container">
 <table class="table table-bordered">
@@ -28,19 +34,13 @@
 <th>CATEGORY DESCRIPTION</th>
 <th>UPDATE OR DELETE</th>
 </tr>
-<c:forEach var="list" items="${categorylist}">
-<form:form modelAttribute="category">
-<tr class="form-group">
-<td><form:input type="text" class="form-control" path="id" value="${list.id}" /></td>
-<td><form:input type="text" class="form-control" path="categoryName" value="${list.categoryName}" /></td>
-<td><form:input type="text" class="form-control" path="categoryDescription" value="${list.categoryDescription}" /></td>
-<td>
-<button type="submit" class="btn btn-info btn-xs" formaction = "updateCategoryData">Update</button>
-<button type="submit" class="btn btn-info btn-xs" formaction = "deleteCategory${list.id}">Delete</button>
-</td>
+<c:forEach var="list" items="${categoryList}">
+	<tr>
+	<td>${list.id}</td>
+	<td>${list.categoryName}</td>
+	<td>${list.categoryDescription}</td>
+<td><a href="<c:url value="updateCategory${list.id}"/>">Update</a>/<a href="<c:url value="deleteCategory${list.id}"/>">Delete</a></td>
 </tr>
-</form:form>
-
 </c:forEach>
 </table>
 </div>

@@ -1,6 +1,5 @@
 package com.project.enterpriceappbackend;
 
-import static org.junit.Assert.*;
 import java.util.List;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -26,7 +25,7 @@ public class CategoryTest
 	{
 		try{
 		Category category=new Category();
-		category.setId(4);
+		category.setId(5);
 		category.setCategoryName("Shoes");
 		category.setCategoryDescription("Woodland");
 		categoryDao.addCategory(category);

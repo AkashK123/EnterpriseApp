@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Oct 18 01:01:03 IST 2017
+org.eclipse.jst.j2ee.server\:enterpriceappbackend=WEB-INF/lib/enterpriceappbackend-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Mohan\\.m2\\repository\\org\\springframework\\spring-web\\4.3.11.RELEASE\\spring-web-4.3.11.RELEASE.jar=WEB-INF/lib/spring-web-4.3.11.RELEASE.jar

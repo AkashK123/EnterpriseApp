@@ -29,7 +29,14 @@
 	</tr>
 </table>
 <br/>
-<button type="submit" class="btn btn-info" formaction = "addsupplier">Add New Supplier</button>
+<c:if var="var" test="${status.equals('add')}"/>
+<c:if test="${var==true}">
+<button type="submit" class="btn btn-info" formaction="addsupplier">Add New Product</button>
+</c:if>
+<c:if test="${var==false}">
+<button type="submit" class="btn btn-info" formaction="updatesupplierdata">Update Product</button>
+</c:if>
+
 </form:form>
 <h1>SUPPLIER MODULE</h1>
 <div class="container">
@@ -43,20 +50,13 @@
 		<th>UPDATE OR DELETE</th>
 	<tr/>
 <c:forEach var="list" items= "${supplierList}">
-<form:form modelAttribute="supplier">
-<tr class="form-group">
-<td><form:input type="text" class="form-control" path="id" value="${list.id}" /></td>
-<td><form:input type="text" class="form-control" path="name" value="${list.name}" /></td>
-<td><form:input type="text" class="form-control" path="email" value="${list.email}" /></td>
-<td><form:input type="text" class="form-control" path="contact" value="${list.contact}" /></td>
-<td><form:input type="text" class="form-control" path="address" value="${list.address}" /></td>
-<td>
-<button type="submit" class="btn btn-info btn-xs" formaction = "updatesupplierdata">Update</button>
-<button type="submit" class="btn btn-info btn-xs" formaction = "deletesupplier${list.id}">Delete</button>
-</td>
-</tr>
-</form:form>
-	
+<tr>
+	<td>${list.id}</td>
+	<td>${list.name}</td>
+	<td>${list.email}</td>
+	<td>${list.contact}</td>
+	<td>${list.address}</td>
+	<td><a href="<c:url value="updatesupplier${list.id}"/>">Update</a>/<a href="<c:url value="deletesupplier${list.id}"/>">Delete</a></td>	
 	</c:forEach>
 </table>
 </div>

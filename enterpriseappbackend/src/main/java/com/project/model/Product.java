@@ -2,6 +2,9 @@ package com.project.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 public class Product {
@@ -10,6 +13,10 @@ public class Product {
 	private int id;
 	private String productName,productDescription;
 	private int productStock,productPrice,categoryId,supplierId;
+	
+	@Transient
+	private MultipartFile pimg;
+	
 	public Product() 
 	{
 		
@@ -24,6 +31,12 @@ public class Product {
 		this.productPrice = productPrice;
 		this.categoryId = categoryId;
 		this.supplierId = supplierId;
+	}
+	public MultipartFile getPimg() {
+		return pimg;
+	}
+	public void setPimg(MultipartFile pimg) {
+		this.pimg = pimg;
 	}
 	public int getId() {
 		return id;

@@ -1,0 +1,11 @@
+127.0.0.1 - - [18/Oct/2017:01:01:20 +0530] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:01:24 +0530] "GET /enterpriceapp/ HTTP/1.1" 200 4580
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:01:24 +0530] "GET /enterpriceapp/resources/images/iphone8.jpg;jsessionid=41A57F55745A4B6D4A45AB0E3170B9AC HTTP/1.1" 200 8832
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:01:24 +0530] "GET /enterpriceapp/resources/images/iphonex.jpg;jsessionid=41A57F55745A4B6D4A45AB0E3170B9AC HTTP/1.1" 200 67569
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:01:24 +0530] "GET /enterpriceapp/resources/images/oneplus_5.jpeg;jsessionid=41A57F55745A4B6D4A45AB0E3170B9AC HTTP/1.1" 200 15329
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:02:46 +0530] "GET /enterpriceapp/ HTTP/1.1" 200 4580
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:02:47 +0530] "GET /enterpriceapp/resources/images/iphone8.jpg;jsessionid=C4168EAB38653BCCBA722EA5050035F5 HTTP/1.1" 200 8832
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:02:48 +0530] "GET /enterpriceapp/resources/images/iphonex.jpg;jsessionid=C4168EAB38653BCCBA722EA5050035F5 HTTP/1.1" 200 67569
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:02:48 +0530] "GET /enterpriceapp/resources/images/oneplus_5.jpeg;jsessionid=C4168EAB38653BCCBA722EA5050035F5 HTTP/1.1" 200 15329
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:02:59 +0530] "GET /favicon.ico HTTP/1.1" 404 1084
+0:0:0:0:0:0:0:1 - - [18/Oct/2017:01:03:04 +0530] "GET /enterpriceapp/category HTTP/1.1" 200 8367

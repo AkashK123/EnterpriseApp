@@ -42,6 +42,9 @@
 </ul>
 </li>
 
+
+<li ><a href="adding" >ADMIN</a></li>
+
 </ul>
 <form class="navbar-form navbar-left">
       <div class="form-group">

@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/view/header.jsp" %>
 <center>
-<form:form modelAttribute="product">
+<form:form enctype="multipart/form-data" modelAttribute="product">
 <table>
 <tr>
 <td><form:label path="id">Product ID:</form:label></td>
@@ -46,6 +46,13 @@
 </form:select>
 </td>
 </tr>
+
+
+<tr>
+<td><form:label path="pimg">Price:</form:label></td>
+<td><form:input type="file" required="true" path="pimg"/></td>
+</tr>
+
 </table>
 <br/>
 

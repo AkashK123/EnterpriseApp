@@ -27,4 +27,5 @@ public class SignupController
 		m.addAttribute("registrationForm", new RegistrationForm());
 		return "signup";
 	}
+	
 }
