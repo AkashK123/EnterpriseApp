@@ -19,7 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.project.dao.CategroyDao;
 import com.project.dao.ProductDao;
 import com.project.dao.SupplierDao;
+import com.project.model.Category;
 import com.project.model.Product;
+import com.project.model.Supplier;
 
 @Controller
 public class ProductController 
@@ -31,27 +33,29 @@ SupplierDao supplierDao;
 @Autowired
 CategroyDao categroyDao;
 
+public void refreshProductSession(HttpSession hs,Model m)
+{
+	m.addAttribute("category", new Category());
+	m.addAttribute("supplier", new Supplier());
+	m.addAttribute("product", new Product());
+	hs.removeAttribute("productList");
+	List<Product> productlist=productDao.retrieveProduct();
+	hs.setAttribute("productList", productlist);
+}
+
 @RequestMapping(value="/product")
 public String productOperation(Model m,HttpSession hs)
 {
-
-	List<Product> productlist=productDao.retrieveProduct();
-	m.addAttribute("product", new Product());
 	m.addAttribute("status", "add");
-	m.addAttribute("productList", productlist);
-	return "product";
+	refreshProductSession(hs, m);
+	return "adding";
 }
 @RequestMapping(value="/addproduct")
-public String addProductOperation(@ModelAttribute("product") Product product,Model m)
+public String addProductOperation(@ModelAttribute("product") Product product,Model m,HttpSession hs)
 {
 	MultipartFile file=product.getPimg();
 	productDao.addProduct(product);
-	
-	List<Product> productlist=productDao.retrieveProduct();
-	m.addAttribute("product", new Product());
 	m.addAttribute("status", "add");
-	m.addAttribute("productList", productlist);
-	
 	String path = "C:\\Users\\Mohan\\Desktop\\Workspace\\enterpriseapp\\src\\main\\webapp\\resources\\images\\product\\"+product.getId()+".jpg";
 	
 	File fileupload= new File(path);
@@ -73,45 +77,39 @@ public String addProductOperation(@ModelAttribute("product") Product product,Mod
 	}
 	System.out.println("File uploaded successfully");
 
-	
-	return "product";
+	refreshProductSession(hs, m);
+	return "adding";
 }
 
 
 @RequestMapping(value="/updateproduct{id}")
-public String updateProductOperation(@PathVariable("id") int id,Model m)
+public String updateProductOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	Product product=productDao.getProduct(id);
-	List<Product> productlist=productDao.retrieveProduct();
+	refreshProductSession(hs, m);
 	m.addAttribute("product", product);
 	m.addAttribute("status", "update");
-	m.addAttribute("productList", productlist);
 	
-	return "product";
+	return "adding";
 }
 
 
 @RequestMapping(value="/updateproductdata")
-public String updateProductData(@ModelAttribute("product") Product product,Model m)
+public String updateProductData(@ModelAttribute("product") Product product,Model m,HttpSession hs)
 {
 	productDao.updateProduct(product);
-	List<Product> productlist=productDao.retrieveProduct();
-	m.addAttribute("product", new Product());
 	m.addAttribute("status", "add");
-	m.addAttribute("productList", productlist);
-	
-	return "product";
+	refreshProductSession(hs, m);
+	return "adding";
 }
 
 @RequestMapping(value="/deleteproduct{id}")
-public String deleteProductOperation(@PathVariable("id") int id,Model m)
+public String deleteProductOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	productDao.deleteProduct(id);
-	List<Product> productlist=productDao.retrieveProduct();
-	m.addAttribute("product", new Product());
 	m.addAttribute("status", "add");
-	m.addAttribute("productList", productlist);	
-	return "product";
+	refreshProductSession(hs, m);
+	return "adding";
 }
 
 }

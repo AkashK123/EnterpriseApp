@@ -27,9 +27,7 @@ public class HomeController {
 	@Autowired
 	ProductDao productDao;
 
-	
-	@RequestMapping(value="/home")
-	public String homepage(HttpSession hs)
+	public void sessionInitialization(HttpSession hs)
 	{
 		List<Category> categorylist=categroyDao.retriveCategory();
 		 hs.setAttribute("categoryList", categorylist);
@@ -37,13 +35,21 @@ public class HomeController {
 		 hs.setAttribute("supplierList", supplierlist);
 		 List<Product> productlist=productDao.retrieveProduct();
 		 hs.setAttribute("productList", productlist);
+	}
+	@RequestMapping(value="/home")
+	public String homepage(HttpSession hs)
+	{
+		sessionInitialization(hs);
 		return "home";
 	}
 	
 	@RequestMapping(value="/adding")
 	public String adding(Model m,HttpSession hs)
 	{
+		sessionInitialization(hs);
 		m.addAttribute("category", new Category());
+		m.addAttribute("supplier", new Supplier());
+		m.addAttribute("product", new Product());
 		m.addAttribute("status","add");
 		return "adding";
 	}

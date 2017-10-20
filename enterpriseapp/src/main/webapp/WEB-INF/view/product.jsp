@@ -50,7 +50,7 @@
 
 <tr>
 <td><form:label path="pimg">Price:</form:label></td>
-<td><form:input type="file" required="true" path="pimg"/></td>
+<td><form:input type="file"  path="pimg"/></td>
 </tr>
 
 </table>
@@ -95,7 +95,15 @@
 </c:if>
 </c:forEach>
 
-<td>${list.supplierId}</td>
+<c:forEach var="suplist" items="${supplierList}">
+<c:if var="supvar" test="${list.supplierId==suplist.id}"/>
+<c:if test="${supvar==true}">
+<td>${suplist.name}</td>
+</c:if>
+<c:if test="${supvar==false}">
+</c:if>
+</c:forEach>
+
 <td><a href="<c:url value="updateproduct${list.id}"/>">Update</a>/<a href="<c:url value="deleteproduct${list.id}"/>">Delete</a></td>
 </tr>
 </c:forEach>
