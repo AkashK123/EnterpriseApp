@@ -43,13 +43,6 @@ public void refreshProductSession(HttpSession hs,Model m)
 	hs.setAttribute("productList", productlist);
 }
 
-@RequestMapping(value="/product")
-public String productOperation(Model m,HttpSession hs)
-{
-	m.addAttribute("status", "add");
-	refreshProductSession(hs, m);
-	return "adding";
-}
 @RequestMapping(value="/addproduct")
 public String addProductOperation(@ModelAttribute("product") Product product,Model m,HttpSession hs)
 {
@@ -90,7 +83,7 @@ public String updateProductOperation(@PathVariable("id") int id,Model m,HttpSess
 	m.addAttribute("product", product);
 	m.addAttribute("status", "update");
 	
-	return "adding";
+	return "viewproduct";
 }
 
 
@@ -100,7 +93,7 @@ public String updateProductData(@ModelAttribute("product") Product product,Model
 	productDao.updateProduct(product);
 	m.addAttribute("status", "add");
 	refreshProductSession(hs, m);
-	return "adding";
+	return "viewproduct";
 }
 
 @RequestMapping(value="/deleteproduct{id}")
@@ -109,7 +102,10 @@ public String deleteProductOperation(@PathVariable("id") int id,Model m,HttpSess
 	productDao.deleteProduct(id);
 	m.addAttribute("status", "add");
 	refreshProductSession(hs, m);
-	return "adding";
+	return "viewproduct";
 }
+
+
+
 
 }

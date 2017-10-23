@@ -53,8 +53,8 @@ public class RegistrationTest {
     	registrationForm.setEmail("akashkumarmohan1751@gmail.com");
     	registrationForm.setName("Akash");
     	registrationForm.setGender("Male");
-    	registrationForm.setPassword("akash");
     	registrationForm.setConfirmPassword("akash");
+    	registrationForm.setPassword("akash");
     	registrationForm.setDob("06/03/1996");
     	registrationFormDao.updateUser(registrationForm);
 		}
@@ -75,6 +75,7 @@ public class RegistrationTest {
 			System.out.println(e.getMessage());
 		}
 	}
+	@Ignore
 	@Test
 	public void getUser()
 	{

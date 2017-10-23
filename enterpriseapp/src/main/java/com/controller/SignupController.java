@@ -23,7 +23,14 @@ public class SignupController
 	@RequestMapping(value="/register")
 	public String registerOperation(@ModelAttribute("registrationForm") RegistrationForm registrationForm,Model m)
 	{
-		registrationFormDao.createUser(registrationForm);
+		if ((registrationForm.getPassword()).equals(registrationForm.getConfirmPassword()))
+		{		
+			registrationFormDao.createUser(registrationForm);
+		}
+		else
+		{
+			m.addAttribute("match", "noperfectmatch");
+		}
 		m.addAttribute("registrationForm", new RegistrationForm());
 		return "signup";
 	}

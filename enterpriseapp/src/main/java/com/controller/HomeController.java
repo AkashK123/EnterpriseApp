@@ -29,7 +29,7 @@ public class HomeController {
 
 	public void sessionInitialization(HttpSession hs)
 	{
-		List<Category> categorylist=categroyDao.retriveCategory();
+		 List<Category> categorylist=categroyDao.retriveCategory();
 		 hs.setAttribute("categoryList", categorylist);
 		 List<Supplier> supplierlist=supplierDao.retrieveSupplier();
 		 hs.setAttribute("supplierList", supplierlist);
@@ -53,7 +53,16 @@ public class HomeController {
 		m.addAttribute("status","add");
 		return "adding";
 	}
-	
+
+	@RequestMapping(value="/viewproduct")
+	public String viewProduct(Model m,HttpSession hs)
+	{
+		sessionInitialization(hs);
+		m.addAttribute("category", new Category());
+		m.addAttribute("supplier", new Supplier());
+		m.addAttribute("product", new Product());
+		return "viewproduct";
+	}
 }
 
 

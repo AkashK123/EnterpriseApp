@@ -2,6 +2,7 @@ package com.project.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class RegistrationForm 
@@ -14,6 +15,7 @@ public class RegistrationForm
 	String country;
 	String address;
 	String Password;
+	@Transient
 	String confirmPassword;
 	String dob;
 	
@@ -33,6 +35,14 @@ public class RegistrationForm
 		Password = password;
 		this.confirmPassword = confirmPassword;
 		this.dob = dob;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	public String getEmail() {
@@ -89,14 +99,6 @@ public class RegistrationForm
 
 	public void setPassword(String password) {
 		Password = password;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
 	}
 
 	public String getDob() {

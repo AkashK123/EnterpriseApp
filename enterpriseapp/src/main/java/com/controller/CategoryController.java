@@ -1,6 +1,7 @@
 package com.controller;
 
 
+
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 import com.project.dao.CategroyDao;
 import com.project.model.Category;
 import com.project.model.Product;
@@ -31,18 +32,12 @@ public class CategoryController
 		hs.setAttribute("categoryList", list);
 	}
 	
-	@RequestMapping(value="/category")
-	public String categoryOpreation(Model m,HttpSession hs)
-	{
-		m.addAttribute("status","add");
-		refreshCategorySession(hs, m);
-		return "adding";
-	}
 	@RequestMapping(value="/addcategory")
 	public String addCategoryOpreation(@ModelAttribute("category") Category category,Model m,HttpSession hs)
 	{
 		categroyDao.addCategory(category);
 		m.addAttribute("status","add");
+		m.addAttribute("taskcomplete", "added");
 		refreshCategorySession(hs,m);
 	return "adding";
 	}
@@ -51,12 +46,13 @@ public class CategoryController
 	{
 		categroyDao.deleteCategory(id);
 		m.addAttribute("status","add");
+		m.addAttribute("taskcomplete", "deleted");
 		refreshCategorySession(hs,m);
 	return "adding";
 	}
 	
 
-@RequestMapping(value="/updateCategory{id}")
+@RequestMapping(value="/updateCategory{id}",method=RequestMethod.GET)
 public String updateCategoryOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	refreshCategorySession(hs,m);
@@ -71,6 +67,7 @@ public String updateCategoryOperation(@PathVariable("id") int id,Model m,HttpSes
 	{
 		categroyDao.updateCategory(category);
 		m.addAttribute("status","add");
+		m.addAttribute("taskcomplete", "updated");
 		refreshCategorySession(hs,m);
 		return "adding";
 	}

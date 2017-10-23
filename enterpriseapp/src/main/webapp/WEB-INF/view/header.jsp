@@ -34,15 +34,7 @@
 </c:forEach>
 </ul>
 </li>
-<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMINCONTROL<b class="caret"></b></a>
-<ul class="dropdown-menu">
-<li><a href="product">Product</a></li>
-<li><a href="category">Category</a></li>
-<li><a href="supplier">Supplier</a></li>
-</ul>
-</li>
-
-
+<li ><a href="viewproduct" >View Products</a></li>
 <li ><a href="adding" >ADMIN</a></li>
 
 </ul>
@@ -72,7 +64,6 @@
         
       </div>
     </div>
-
   </div>
 </div>
 

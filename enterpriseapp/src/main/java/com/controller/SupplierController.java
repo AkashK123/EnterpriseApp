@@ -32,14 +32,6 @@ public void refreshSupplierSession(HttpSession hs,Model m)
 	hs.setAttribute("supplierList", list);
 }
 
-@RequestMapping(value="/supplier")
-public String supplierOperation(Model m,HttpSession hs)
-{
-	m.addAttribute("status","add");
-	refreshSupplierSession(hs,m);
-	return "adding";
-}
-
 @RequestMapping(value="/addsupplier")
 public String addSupplierOperation( @ModelAttribute("supplier") Supplier supplier,Model m,HttpSession hs)
 {
