@@ -3,12 +3,18 @@ package com.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.dao.CategroyDao;
 import com.project.dao.ProductDao;
@@ -43,6 +49,18 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/login")
+	public String Loginpage(HttpSession hs,@RequestParam(name="error",required=false) String error,Model m)
+	{
+		if(error!=null)
+		{
+			m.addAttribute("message", "Invalid Username or password");
+		}
+		
+		sessionInitialization(hs);
+		return "login";
+	}
+	
 	@RequestMapping(value="/adding")
 	public String adding(Model m,HttpSession hs)
 	{
@@ -63,6 +81,26 @@ public class HomeController {
 		m.addAttribute("product", new Product());
 		return "viewproduct";
 	}
+	@RequestMapping(value="/accessdenied")
+	public String accessdenied(Model m)
+	{
+		m.addAttribute("error","Access for this page is denied for all users");
+		return "error";
+	}
+	
+	@RequestMapping(value="/performlogoutoperation")
+	public String logoutOperation(HttpServletRequest request,HttpServletResponse response)
+	{
+		//fetch the authentication object
+		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		if(authentication!=null)
+		{
+			new SecurityContextLogoutHandler().logout(request, response, authentication);
+			
+		}
+		return "redirect:/home";
+	}
+	
 }
 
 

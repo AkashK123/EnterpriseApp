@@ -1,6 +1,9 @@
 package com.project.enterpriceappbackend;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -35,6 +38,7 @@ public class RegistrationTest {
     	registrationForm.setPassword("akash");
     	registrationForm.setConfirmPassword("akash");
     	registrationForm.setDob("06/03/1996");
+    	registrationForm.setRole("ROLE_ADMIN");
     	registrationFormDao.createUser(registrationForm);
 		}
 		catch (Exception e) {
@@ -50,12 +54,13 @@ public class RegistrationTest {
     	registrationForm.setAddress("Room no:-62");
     	registrationForm.setContact("9769841882");
     	registrationForm.setCountry("India");
-    	registrationForm.setEmail("akashkumarmohan1751@gmail.com");
+    	registrationForm.setEmail("akashkumarmohan1996@gmail.com");
     	registrationForm.setName("Akash");
     	registrationForm.setGender("Male");
     	registrationForm.setConfirmPassword("akash");
     	registrationForm.setPassword("akash");
     	registrationForm.setDob("06/03/1996");
+    	registrationForm.setRole("ROLE_USER");
     	registrationFormDao.updateUser(registrationForm);
 		}
 		catch (Exception e) {
@@ -68,7 +73,7 @@ public class RegistrationTest {
 	{
 		try{
 		RegistrationForm registrationForm=new RegistrationForm();
-    	registrationForm.setEmail("akashkumarmohan1751@gmail.com");
+    	registrationForm.setEmail("akashkumarmohan1996@gmail.com");
     	registrationFormDao.deleteUser(registrationForm.getEmail());
 		}
 		catch (Exception e) {
@@ -81,7 +86,7 @@ public class RegistrationTest {
 	{
 		try{
 			RegistrationForm registrationForm=new RegistrationForm();
-			registrationForm.setEmail("akashkumarmohan1996@gmail.com");
+			registrationForm.setEmail("akashkumarmohan1996@yahoo.com");
 			RegistrationForm registrationForm1=registrationFormDao.getUser(registrationForm.getEmail());
 			System.out.println(registrationForm1.getName());
 			System.out.println(registrationForm1.getDob());
@@ -91,4 +96,23 @@ public class RegistrationTest {
 			System.out.println(e.getMessage());
 		}
 	}
+
+	
+	@Test
+	public void retrieveUser()
+	{
+		try{
+		List<RegistrationForm> list=registrationFormDao.retrieveUser();	
+		for (RegistrationForm registrationForm : list) {
+			System.out.println(registrationForm.getEmail());
+		}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
+
+
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,7 +14,7 @@
 <body>
 
 
-<nav class="navbar navbar-inverse navbar-static-top">
+<nav class="navbar navbar-inverse navbar-static-top" style="background:black;">
 <div class="container">
 
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,8 +36,9 @@
 </ul>
 </li>
 <li ><a href="viewproduct" >View Products</a></li>
+<security:authorize access="hasRole('ADMIN')">
 <li ><a href="adding" >ADMIN</a></li>
-
+</security:authorize>
 </ul>
 <form class="navbar-form navbar-left">
       <div class="form-group">
@@ -45,9 +47,32 @@
       <button type="submit" class="btn btn-default">Search</button>
 </form>
 <ul class=" nav navbar-nav navbar-right">
+<security:authorize access="isAnonymous()">
 <li><a href="signup"><span class="glyphicon glyphicon-user"></span>Signup</a></li>
-<li><a href="#" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-user"></span>Log-in</a></li>
-<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+<li><a href="login" ><span class="glyphicon glyphicon-user"></span>Log-in</a></li>
+</security:authorize>
+
+<security:authorize access="isAuthenticated()">
+<li class="dropdown">
+		<a class="btn btn-default dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown">
+			Hi ${usermodel.name}<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu" >
+			<security:authorize access="hasRole('USER')">
+			<li>
+				<a href="#">
+					<span class="glyphicon glyphicon-shopping-cart"></span>&#160;
+					<span class="badge">0</span> - &#8377;0.0
+				</a>
+			</li>
+			</security:authorize>		     
+	<li role="separator" class="divider"></li>	                                   
+		<li id="logout">
+			<a href="${pageContext.request.contextPath}/performlogoutoperation"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+		</li>                    			    	
+		</ul>		
+</li>
+</security:authorize>
 </ul>
 </div>
 </div>

@@ -1,5 +1,7 @@
 package com.project.daoimp;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.cache.spi.access.RegionAccessStrategy;
@@ -22,7 +24,7 @@ public class RegistrationFormDaoImpl implements RegistrationFormDao
 	}
 	public void updateUser(RegistrationForm registrationForm) 
 	{
-		sessionFactory.getCurrentSession().update(registrationForm);
+		sessionFactory.getCurrentSession().saveOrUpdate(registrationForm);
 	}
 	public void deleteUser(String email) 
 	{
@@ -34,6 +36,11 @@ public class RegistrationFormDaoImpl implements RegistrationFormDao
 	{
 		RegistrationForm registrationForm=sessionFactory.getCurrentSession().get(RegistrationForm.class,email);
 		return registrationForm;
+	}
+	public List<RegistrationForm> retrieveUser() {
+		Query query=sessionFactory.getCurrentSession().createQuery("from RegistrationForm");
+		List<RegistrationForm> list=query.list();
+		return list;
 	}
 
 }

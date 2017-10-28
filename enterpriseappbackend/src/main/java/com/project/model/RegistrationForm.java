@@ -2,9 +2,11 @@ package com.project.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
+@Table(name="USER_DETAILS")
 public class RegistrationForm 
 {
 	@Id
@@ -18,14 +20,14 @@ public class RegistrationForm
 	@Transient
 	String confirmPassword;
 	String dob;
+	String Role;
 	
 	public RegistrationForm() {
 		
 	}
 
 	public RegistrationForm(String email, String name, String contact, String gender, String country, String address,
-			String password, String confirmPassword, String dob) {
-		super();
+			String password, String confirmPassword, String dob, String role) {
 		this.email = email;
 		this.name = name;
 		this.contact = contact;
@@ -35,14 +37,7 @@ public class RegistrationForm
 		Password = password;
 		this.confirmPassword = confirmPassword;
 		this.dob = dob;
-	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+		Role = role;
 	}
 
 	public String getEmail() {
@@ -101,12 +96,28 @@ public class RegistrationForm
 		Password = password;
 	}
 
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+
 	public String getDob() {
 		return dob;
 	}
 
 	public void setDob(String dob) {
 		this.dob = dob;
+	}
+
+	public String getRole() {
+		return Role;
+	}
+
+	public void setRole(String role) {
+		Role = role;
 	}
 	
 	

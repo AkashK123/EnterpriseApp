@@ -25,7 +25,7 @@ public class HiberConfigBackend
     return sessionFactory;
 	}
 
-	@Bean
+	@Bean("dataSource")
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");

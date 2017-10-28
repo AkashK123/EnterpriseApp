@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>View Product</title>
 </head>
 <body>
 
@@ -79,7 +79,7 @@
 <form:input type="file" path="pimg"/>
 </div>
 </div>
-<button type="submit" class="btn" formaction="updateproductdata">Update Product</button>
+<button type="submit" class="btn btn-primary navbar-inverse" formaction="updateproductdata">Update Product</button>
 </form:form>
 
 </center>
@@ -89,17 +89,24 @@
 <center>
 <h1>PRODUCT LIST</h1>
 <form:form modelAttribute="product">
-<table class="table table-bordered">
-<tr bgcolor="lightblue">
-<th>ID</th>
-<th>NAME</th>
-<th>DESCRIPTION</th>
-<th>STOCK</th>
-<th>PRICE</th>
-<th>CATEGORY ID</th>
-<th>SUPPLIER ID</th>
-<th>UPDATE OR DELETE</th>
+<table class="table table-hover">
+<thead bgcolor="#222">
+<tr>
+<th><font color="#FFFFFF">ID</font></th>
+<th><font color="#FFFFFF">NAME</font></th>
+<th><font color="#FFFFFF">DESCRIPTION</font></th>
+<th><font color="#FFFFFF">STOCK</font></th>
+<th><font color="#FFFFFF">PRICE</font></th>
+<th><font color="#FFFFFF">CATEGORY ID</font></th>
+<th><font color="#FFFFFF">SUPPLIER ID</font></th>
+<security:authorize access="hasRole('ADMIN')">
+<th><font color="#FFFFFF">EDIT OR DELETE</font></th>
+</security:authorize>
+<security:authorize access="hasRole('USER')">
+<th></th>
+</security:authorize>
 </tr>
+</thead>
 <c:forEach var="list" items="${productList}">
 <tr>
 <td>${list.id}</td>
@@ -125,8 +132,18 @@
 <c:if test="${supvar==false}">
 </c:if>
 </c:forEach>
-<td><a href="<c:url value="updateproduct${list.id}"/>"><button type="button" class="btn btn-info btn-xs">Update</button></a>
-<a href="<c:url value="deleteproduct${list.id}"/>"><button type="button" class="btn btn-info btn-xs">Delete</button></a></td>
+<security:authorize access="hasRole('ADMIN')">
+<td>
+<a href="<c:url value="updateproduct${list.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+<a href="<c:url value="deleteproduct${list.id}" />" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+</td>
+</security:authorize>
+<security:authorize access="hasRole('USER')">
+<th>
+<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
+<a href="#" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+</th>
+</security:authorize>
 </tr>
 </c:forEach>
 </table>
@@ -134,7 +151,6 @@
 </center>
 
 </c:if>
-
-<%@ include file="/WEB-INF/view/footer.jsp" %>
 </body>
 </html>
+<%@ include file="/WEB-INF/view/footer.jsp" %>

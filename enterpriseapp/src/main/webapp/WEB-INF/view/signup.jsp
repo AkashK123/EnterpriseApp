@@ -124,9 +124,14 @@
 						</div>
 						
 
-
+                        <div class="row">
+                         <div class="col-md-offset-3 col-md-3">
 							<button type="submit" class="btn btn-primary btn-lg btn-block login-button" formaction="register">Register</button>
-	
+						 </div>
+						 <div class="col-md-3">	
+							<button type="reset" class="btn btn-primary btn-lg btn-block login-button" >Reset</button>
+						 </div>
+						</div>
 					</form:form>
 				</div>
 			</div>

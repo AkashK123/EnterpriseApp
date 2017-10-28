@@ -103,8 +103,10 @@
 	<td>${list.id}</td>
 	<td>${list.categoryName}</td>
 	<td>${list.categoryDescription}</td>
-<td><a href="<c:url value="updateCategory${list.id}"/>"><button type="button" class="btn btn-info btn-sm">Update</button></a>
-<a href="<c:url value="deleteCategory${list.id}"/>"><button type="button" class="btn btn-info btn-sm">Delete</button></a></td>
+<td>
+<a href="<c:url value="updateCategory${list.id}"/>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+<a href="<c:url value="deleteCategory${list.id}"/>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+</td>
 </tr>
 </c:forEach>
 </table>
@@ -182,8 +184,10 @@
 	<td>${list.email}</td>
 	<td>${list.contact}</td>
 	<td>${list.address}</td>
-	<td><a href="<c:url value="updatesupplier${list.id}"/>"><button type="button" class="btn btn-info btn-xs">Update</button></a>
-	<a href="<c:url value="deletesupplier${list.id}"/>"><button type="button" class="btn btn-info btn-xs">Delete</button></a></td>	
+	<td>
+		<a href="<c:url value="updatesupplier${list.id}"/>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a href="<c:url value="deletesupplier${list.id}"/>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+	</td>	
 	</c:forEach>
 </table>
 </div>
