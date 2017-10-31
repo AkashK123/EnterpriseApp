@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="USER_DETAILS")
@@ -16,18 +18,24 @@ public class RegistrationForm
 	String gender;
 	String country;
 	String address;
+	@NotNull
+	@Size(min=6,max=15,message="Your password must contain 6 character and less than 15")
 	String Password;
 	@Transient
 	String confirmPassword;
 	String dob;
 	String Role;
+	String enabled;
 	
 	public RegistrationForm() {
 		
 	}
 
+	
+
 	public RegistrationForm(String email, String name, String contact, String gender, String country, String address,
-			String password, String confirmPassword, String dob, String role) {
+			String password, String confirmPassword, String dob, String role, String enabled) {
+		super();
 		this.email = email;
 		this.name = name;
 		this.contact = contact;
@@ -38,7 +46,22 @@ public class RegistrationForm
 		this.confirmPassword = confirmPassword;
 		this.dob = dob;
 		Role = role;
+		this.enabled = enabled;
 	}
+
+
+
+	public String getEnabled() {
+		return enabled;
+	}
+
+
+
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
+	}
+
+
 
 	public String getEmail() {
 		return email;

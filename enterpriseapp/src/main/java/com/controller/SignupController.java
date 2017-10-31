@@ -26,6 +26,7 @@ public class SignupController
 		if ((registrationForm.getPassword()).equals(registrationForm.getConfirmPassword()))
 		{		
 			registrationForm.setRole("ROLE_USER");
+			registrationForm.setEnabled("TRUE");
 			registrationFormDao.createUser(registrationForm);
 		}
 		else

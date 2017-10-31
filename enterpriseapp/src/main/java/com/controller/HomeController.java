@@ -61,7 +61,7 @@ public class HomeController {
 		return "login";
 	}
 	
-	@RequestMapping(value="/adding")
+	@RequestMapping(value="/adminadding")
 	public String adding(Model m,HttpSession hs)
 	{
 		sessionInitialization(hs);

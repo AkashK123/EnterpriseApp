@@ -37,7 +37,7 @@
 </li>
 <li ><a href="viewproduct" >View Products</a></li>
 <security:authorize access="hasRole('ADMIN')">
-<li ><a href="adding" >ADMIN</a></li>
+<li ><a href="adminadding" >ADMIN</a></li>
 </security:authorize>
 </ul>
 <form class="navbar-form navbar-left">

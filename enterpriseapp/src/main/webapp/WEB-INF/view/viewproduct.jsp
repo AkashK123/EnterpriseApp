@@ -79,7 +79,8 @@
 <form:input type="file" path="pimg"/>
 </div>
 </div>
-<button type="submit" class="btn btn-primary navbar-inverse" formaction="updateproductdata">Update Product</button>
+<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+<button type="submit" class="btn btn-primary navbar-inverse" formaction="adminupdateproductdata">Update Product</button>
 </form:form>
 
 </center>
@@ -134,15 +135,16 @@
 </c:forEach>
 <security:authorize access="hasRole('ADMIN')">
 <td>
-<a href="<c:url value="updateproduct${list.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
-<a href="<c:url value="deleteproduct${list.id}" />" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+<a href="<c:url value="adminupdateproduct${list.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+<a href="<c:url value="admindeleteproduct${list.id}" />" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 </td>
 </security:authorize>
 <security:authorize access="hasRole('USER')">
-<th>
-<a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
+<td>
+<a href="<c:url value="singleproductdetails${list.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
 <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-</th>
+</td>
 </security:authorize>
 </tr>
 </c:forEach>

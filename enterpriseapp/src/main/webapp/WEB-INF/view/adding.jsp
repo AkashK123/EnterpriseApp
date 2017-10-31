@@ -80,10 +80,10 @@
 
  <c:if var="var" test="${status.equals('add')}"/>
 <c:if test="${var==true}">
-<button type="submit" class="btn btn-primary navbar-inverse" formaction="addcategory">Add New Category</button>
+<button type="submit" class="btn btn-primary navbar-inverse" formaction="adminaddcategory">Add New Category</button>
 </c:if>
 <c:if test="${var==false}">
-<button type="submit" class="btn btn-primary navbar-inverse" formaction="updateCategoryData">Update Category</button>
+<button type="submit" class="btn btn-primary navbar-inverse" formaction="adminupdateCategoryData">Update Category</button>
 </c:if>
 </form:form>
 </center>   
@@ -104,8 +104,8 @@
 	<td>${list.categoryName}</td>
 	<td>${list.categoryDescription}</td>
 <td>
-<a href="<c:url value="updateCategory${list.id}"/>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
-<a href="<c:url value="deleteCategory${list.id}"/>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+<a href="<c:url value="adminupdateCategory${list.id}"/>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+<a href="<c:url value="admindeleteCategory${list.id}"/>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 </td>
 </tr>
 </c:forEach>
@@ -157,10 +157,10 @@
 <br/><br/>
 <c:if var="var" test="${status.equals('add')}"/>
 <c:if test="${var==true}">
-<button type="submit" class="btn btn-primary navbar-inverse" formaction="addsupplier">Add New Supplier</button>
+<button type="submit" class="btn btn-primary navbar-inverse" formaction="adminaddsupplier">Add New Supplier</button>
 </c:if>
 <c:if test="${var==false}">
-<button type="submit" class="btn btn-primary navbar-inverse" formaction="updatesupplierdata">Update Supplier</button>
+<button type="submit" class="btn btn-primary navbar-inverse" formaction="adminupdatesupplierdata">Update Supplier</button>
 </c:if>
 
 </form:form>
@@ -185,8 +185,8 @@
 	<td>${list.contact}</td>
 	<td>${list.address}</td>
 	<td>
-		<a href="<c:url value="updatesupplier${list.id}"/>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
-		<a href="<c:url value="deletesupplier${list.id}"/>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+		<a href="<c:url value="adminupdatesupplier${list.id}"/>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a href="<c:url value="admindeletesupplier${list.id}"/>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 	</td>	
 	</c:forEach>
 </table>
@@ -198,7 +198,7 @@
 <div id="producttab" class="tab-pane fade">
 <center>
 <h1>PRODUCT MODULE</h1>
-<form:form enctype="multipart/form-data" modelAttribute="product" class="form-horizontal">
+<form:form enctype="multipart/form-data"   modelAttribute="product" class="form-horizontal">
 
 <div class="form-group">
 <label class="control-label col-sm-2" >Product ID:</label>
@@ -265,9 +265,7 @@
 </div>
 
 
-
-
-<button type="submit" class="btn btn-primary navbar-inverse" formaction="addproduct">Add New Product</button>
+<button type="submit" class="btn btn-primary navbar-inverse" formaction="adminaddproduct">Add New Product</button>
 </form:form>
 
 </center>

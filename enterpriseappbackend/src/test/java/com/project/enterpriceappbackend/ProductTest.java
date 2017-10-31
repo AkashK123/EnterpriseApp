@@ -30,13 +30,13 @@ public class ProductTest {
 	{
 		try{
 		Product product=new Product();
-		product.setId(1);
-		product .setProductName("Samsung J7");
-		product.setProductDescription("3000 mh battery");
-		product.setProductPrice(20000);
-		product.setCategoryId(101);
+		product.setId(2);
+		product .setProductName("iphonex");
+		product.setProductDescription("15.7 inch");
+		product.setProductPrice(50000);
+		product.setCategoryId(2);
 		product.setProductStock(200);
-		product.setSupplierId(120);
+		product.setSupplierId(103);
 		productDao.addProduct(product);
 		}
 		catch (Exception e) {
@@ -75,7 +75,7 @@ public class ProductTest {
 			System.out.println(e.getMessage());
 		}
 	}
-
+	@Ignore
 	@Test
 	public void getProduct() 
 	{

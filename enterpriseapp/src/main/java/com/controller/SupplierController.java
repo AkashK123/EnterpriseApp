@@ -32,7 +32,7 @@ public void refreshSupplierSession(HttpSession hs,Model m)
 	hs.setAttribute("supplierList", list);
 }
 
-@RequestMapping(value="/addsupplier")
+@RequestMapping(value="/adminaddsupplier")
 public String addSupplierOperation( @ModelAttribute("supplier") Supplier supplier,Model m,HttpSession hs)
 {
 	supplierDao.addSupplier(supplier);
@@ -41,7 +41,7 @@ public String addSupplierOperation( @ModelAttribute("supplier") Supplier supplie
 	return "adding";
 }
 
-@RequestMapping(value="/deletesupplier{id}")
+@RequestMapping(value="/admindeletesupplier{id}")
 public String deleteSupplierOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	supplierDao.deleteSupplier(id);
@@ -50,7 +50,7 @@ public String deleteSupplierOperation(@PathVariable("id") int id,Model m,HttpSes
 	return "adding";
 }
 
-@RequestMapping(value="/updatesupplier{id}")
+@RequestMapping(value="/adminupdatesupplier{id}")
 public String updateSupplierOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	refreshSupplierSession(hs,m);
@@ -60,7 +60,7 @@ public String updateSupplierOperation(@PathVariable("id") int id,Model m,HttpSes
 	return "adding";
 }
 
-@RequestMapping(value="/updatesupplierdata")
+@RequestMapping(value="/adminupdatesupplierdata")
 public String updateSupplierData(@ModelAttribute("supplier") Supplier supplier,Model m,HttpSession hs)
 {
 	supplierDao.updateSupplier(supplier);

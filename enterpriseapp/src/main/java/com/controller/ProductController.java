@@ -43,7 +43,7 @@ public void refreshProductSession(HttpSession hs,Model m)
 	hs.setAttribute("productList", productlist);
 }
 
-@RequestMapping(value="/addproduct")
+@RequestMapping(value="/adminaddproduct")
 public String addProductOperation(@ModelAttribute("product") Product product,Model m,HttpSession hs)
 {
 	MultipartFile file=product.getPimg();
@@ -71,11 +71,12 @@ public String addProductOperation(@ModelAttribute("product") Product product,Mod
 	System.out.println("File uploaded successfully");
 
 	refreshProductSession(hs, m);
-	return "adding";
+	System.out.println("hello");
+	return "viewproduct";
 }
 
 
-@RequestMapping(value="/updateproduct{id}")
+@RequestMapping(value="/adminupdateproduct{id}")
 public String updateProductOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	Product product=productDao.getProduct(id);
@@ -87,7 +88,7 @@ public String updateProductOperation(@PathVariable("id") int id,Model m,HttpSess
 }
 
 
-@RequestMapping(value="/updateproductdata")
+@RequestMapping(value="/adminupdateproductdata")
 public String updateProductData(@ModelAttribute("product") Product product,Model m,HttpSession hs)
 {
 	productDao.updateProduct(product);
@@ -96,7 +97,7 @@ public String updateProductData(@ModelAttribute("product") Product product,Model
 	return "viewproduct";
 }
 
-@RequestMapping(value="/deleteproduct{id}")
+@RequestMapping(value="/admindeleteproduct{id}")
 public String deleteProductOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	productDao.deleteProduct(id);
@@ -105,7 +106,13 @@ public String deleteProductOperation(@PathVariable("id") int id,Model m,HttpSess
 	return "viewproduct";
 }
 
-
-
+@RequestMapping(value="/singleproductdetails{id}")
+public String viewsingleproduct(@PathVariable("id") int id,Model m)
+{
+	System.out.println("hello");
+	Product product=productDao.getProduct(id);
+	m.addAttribute("productdetails", product);
+	return "singleproductdetails";
+}
 
 }

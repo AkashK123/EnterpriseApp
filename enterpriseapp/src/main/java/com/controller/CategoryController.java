@@ -32,7 +32,7 @@ public class CategoryController
 		hs.setAttribute("categoryList", list);
 	}
 	
-	@RequestMapping(value="/addcategory")
+	@RequestMapping(value="/adminaddcategory")
 	public String addCategoryOpreation(@ModelAttribute("category") Category category,Model m,HttpSession hs)
 	{
 		categroyDao.addCategory(category);
@@ -41,7 +41,7 @@ public class CategoryController
 		refreshCategorySession(hs,m);
 	return "adding";
 	}
-	@RequestMapping(value="/deleteCategory{id}")
+	@RequestMapping(value="/admindeleteCategory{id}")
 	public String deleteCategoryOpreation(@PathVariable("id") int id,Model m,HttpSession hs)
 	{
 		categroyDao.deleteCategory(id);
@@ -52,7 +52,7 @@ public class CategoryController
 	}
 	
 
-@RequestMapping(value="/updateCategory{id}",method=RequestMethod.GET)
+@RequestMapping(value="/adminupdateCategory{id}",method=RequestMethod.GET)
 public String updateCategoryOperation(@PathVariable("id") int id,Model m,HttpSession hs)
 {
 	refreshCategorySession(hs,m);
@@ -62,7 +62,7 @@ public String updateCategoryOperation(@PathVariable("id") int id,Model m,HttpSes
 	return "adding";
 }
 
-	@RequestMapping(value="/updateCategoryData")
+	@RequestMapping(value="/adminupdateCategoryData")
 	public String updateCategoryData(@ModelAttribute("category") Category category,Model m,HttpSession hs)
 	{
 		categroyDao.updateCategory(category);
