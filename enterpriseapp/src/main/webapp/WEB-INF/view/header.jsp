@@ -9,12 +9,13 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>All-IN-ONE-BAZAR</title>
+<link rel="icon" href="<c:url value="/resources/images/logo.jpg"/>" type="image/jpg" />
+<title>Homeshop 18</title>
 </head>
 <body>
 
 
-<nav class="navbar navbar-inverse navbar-static-top" style="background:black;">
+<nav class="navbar navbar-inverse navbar-Fixed-top" style="background:navyblue;">
 <div class="container">
 
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -23,15 +24,16 @@
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="nav navbar-nav navbar-left navbar-brand" href="#">All-In-One-Bazar</a>
+
+<a class="nav navbar-nav navbar-left navbar-brand" href="#">Homeshop 18</a>
 <div class="navbar-collapse collapse">
 <ul class=" nav navbar-nav navbar-left"> 
 <li ><a href="home" >Home</a></li>
 
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Caterory<b class="caret"></b></a>
 <ul class="dropdown-menu">
-<c:forEach var="li" items="${categoryList}">
-<li><a href="#">${li.categoryName}</a></li>
+<c:forEach var="list" items="${categoryList}">
+<li><a href="productcategory${list.id}">${list.categoryName}</a></li>
 </c:forEach>
 </ul>
 </li>
@@ -39,17 +41,22 @@
 <security:authorize access="hasRole('ADMIN')">
 <li ><a href="adminadding" >ADMIN</a></li>
 </security:authorize>
+
+<security:authorize access="hasRole('USER')">
+<li ><a href="cartpage" >CART</a></li>
+</security:authorize>
+
 </ul>
-<form class="navbar-form navbar-left">
+<form class="navbar-form navbar-left" action="search">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search"/>
+        <input type="text" required="true" class="form-control" name="searchname" placeholder="Search"/>
       </div>
       <button type="submit" class="btn btn-default">Search</button>
 </form>
 <ul class=" nav navbar-nav navbar-right">
 <security:authorize access="isAnonymous()">
 <li><a href="signup"><span class="glyphicon glyphicon-user"></span>Signup</a></li>
-<li><a href="login" ><span class="glyphicon glyphicon-user"></span>Log-in</a></li>
+<li><a href="login" ><span class="glyphicon glyphicon-log-in"></span> Log-in</a></li>
 </security:authorize>
 
 <security:authorize access="isAuthenticated()">
@@ -60,7 +67,7 @@
 		<ul class="dropdown-menu" >
 			<security:authorize access="hasRole('USER')">
 			<li>
-				<a href="#">
+				<a href="cartpage">
 					<span class="glyphicon glyphicon-shopping-cart"></span>&#160;
 					<span class="badge">0</span> - &#8377;0.0
 				</a>
@@ -77,18 +84,3 @@
 </div>
 </div>
 </nav>
-
-
-<div id="myModal" class="modal fade" >
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-body">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-        
-      </div>
-    </div>
-  </div>
-</div>
-

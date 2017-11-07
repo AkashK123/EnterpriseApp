@@ -9,9 +9,7 @@
 <body>
 
 <%@ include file="/WEB-INF/view/header.jsp" %>
-
-<c:if var="var" test="${status.equals('update')}"/>
-<c:if test="${var==true}">
+<security:authorize access="hasRole('ADMIN')">
 <center>
 <h1>PRODUCT MODULE</h1>
 <form:form enctype="multipart/form-data" modelAttribute="product" class="form-horizontal">
@@ -79,27 +77,37 @@
 <form:input type="file" path="pimg"/>
 </div>
 </div>
-<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 <button type="submit" class="btn btn-primary navbar-inverse" formaction="adminupdateproductdata">Update Product</button>
 </form:form>
-
 </center>
-</c:if>
+</security:authorize>
 
-<c:if test="${var==false}">
+<div class="container">
 <center>
-<h1>PRODUCT LIST</h1>
+
+<div class="row">
+	<div class="col-sm-12">
+		<ol class="breadcrumb">
+			<li><a href="home">Home</a></li>
+			<li><a href="viewproduct">Products</a></li>
+			<c:forEach var="list" items="${categoryList}">
+			<c:if test="${list.id==productdetails.categoryId}">
+			<li><a href="productcategory${list.id}">${list.categoryName}</a></li>
+			</c:if>
+			</c:forEach>
+			<li class="active">${productdetails.productName}</li>
+		</ol>
+	</div>
+</div>
+
 <form:form modelAttribute="product">
 <table class="table table-hover">
 <thead bgcolor="#222">
 <tr>
-<th><font color="#FFFFFF">ID</font></th>
+<th></th>
 <th><font color="#FFFFFF">NAME</font></th>
-<th><font color="#FFFFFF">DESCRIPTION</font></th>
-<th><font color="#FFFFFF">STOCK</font></th>
 <th><font color="#FFFFFF">PRICE</font></th>
-<th><font color="#FFFFFF">CATEGORY ID</font></th>
-<th><font color="#FFFFFF">SUPPLIER ID</font></th>
+<th><font color="#FFFFFF">DESCRIPTION</font></th>
 <security:authorize access="hasRole('ADMIN')">
 <th><font color="#FFFFFF">EDIT OR DELETE</font></th>
 </security:authorize>
@@ -109,50 +117,51 @@
 </tr>
 </thead>
 <c:forEach var="list" items="${productList}">
+
+
+
 <tr>
-<td>${list.id}</td>
-<td>${list.productName}</td>
-<td>${list.productDescription}</td>
-<td>${list.productStock}</td>
-<td>${list.productPrice}</td>
+<td>
+<a href="<c:url value="singleproductdetails${list.id}" />">
+<img src="<c:url value="/resources/images/product/${list.id}.jpg"/>"  height="200" width="200" class="img img-responsive"/>
+</a>
+</td>
 
-<c:forEach var="catlist" items="${categoryList}">
-<c:if var="catvar" test="${list.categoryId==catlist.id}"/>
-<c:if test="${catvar==true}">
-<td>${catlist.categoryName}</td>
-</c:if>
-<c:if test="${catvar==false}">
-</c:if>
-</c:forEach>
+<td>
+<a style="color:black;text-decoration : none" href="<c:url value="singleproductdetails${list.id}" />">
+<h4><strong>${list.productName}</strong></h4>
+</a>
+</td>
 
-<c:forEach var="suplist" items="${supplierList}">
-<c:if var="supvar" test="${list.supplierId==suplist.id}"/>
-<c:if test="${supvar==true}">
-<td>${suplist.name}</td>
-</c:if>
-<c:if test="${supvar==false}">
-</c:if>
-</c:forEach>
+
+
+<td>
+<a style="color:black;text-decoration : none" href="<c:url value="singleproductdetails${list.id}" />">
+<h4><strong>&#8377;${list.productPrice}</strong></h4>
+</a>
+</td>
+
+<td>
+<a style="color:black;text-decoration : none" href="<c:url value="singleproductdetails${list.id}" />">
+<h4><strong>${list.productDescription}</strong></h4>
+</a>
+</td>
+
+
+
 <security:authorize access="hasRole('ADMIN')">
 <td>
-<a href="<c:url value="adminupdateproduct${list.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
-<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-<a href="<c:url value="admindeleteproduct${list.id}" />" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+<a href="<c:url value="adminupdateproduct${list.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+<a href="<c:url value="admindeleteproduct${list.id}" />" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>DELETE</a>
 </td>
 </security:authorize>
-<security:authorize access="hasRole('USER')">
-<td>
-<a href="<c:url value="singleproductdetails${list.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a>
-<a href="#" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-</td>
-</security:authorize>
+
 </tr>
 </c:forEach>
 </table>
 </form:form>
 </center>
-
-</c:if>
+</div>
 </body>
 </html>
 <%@ include file="/WEB-INF/view/footer.jsp" %>

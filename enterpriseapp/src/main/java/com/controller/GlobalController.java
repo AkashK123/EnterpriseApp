@@ -38,11 +38,6 @@ public class GlobalController
 			user.setName(registrationForm.getName());
 			user.setRole(registrationForm.getRole());
 			
-			if(user.getRole().equals("ROLE_USER"))
-			{
-				//set cart items here
-			}
-			//set session attribute
 			session.setAttribute("usermodel", user);
 			return user;
 			}

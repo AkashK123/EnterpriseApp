@@ -34,7 +34,7 @@ public class SignupController
 			m.addAttribute("match", "noperfectmatch");
 		}
 		m.addAttribute("registrationForm", new RegistrationForm());
-		return "signup";
+		return "login";
 	}
 	
 }

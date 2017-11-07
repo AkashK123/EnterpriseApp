@@ -76,8 +76,6 @@ public class HomeController {
 	public String viewProduct(Model m,HttpSession hs)
 	{
 		sessionInitialization(hs);
-		m.addAttribute("category", new Category());
-		m.addAttribute("supplier", new Supplier());
 		m.addAttribute("product", new Product());
 		return "viewproduct";
 	}
@@ -100,6 +98,17 @@ public class HomeController {
 		}
 		return "redirect:/home";
 	}
+	
+	@RequestMapping(value="/search")
+	public String search(@RequestParam("searchname") String searchname,Model m,HttpSession hs)
+	{
+		sessionInitialization(hs);
+		List<Product> list=productDao.retrieveProductByName(searchname);
+		m.addAttribute("productList",list);
+		m.addAttribute("product",new Product());
+		return "viewproduct";
+	}
+	
 	
 }
 

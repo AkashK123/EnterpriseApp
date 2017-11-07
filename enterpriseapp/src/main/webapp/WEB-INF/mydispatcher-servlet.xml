@@ -11,7 +11,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd ">
         <context:component-scan base-package="com.*" />
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <context:annotation-config></context:annotation-config>
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>

@@ -24,7 +24,7 @@ public class CategoryDaoImpl implements CategroyDao
 
 	public void updateCategory(Category category) 
 	{
-		sessionFactory.getCurrentSession().update(category);
+		sessionFactory.getCurrentSession().saveOrUpdate(category);
 	}
 
 	public Category getCategory(int id) 

@@ -4,7 +4,7 @@
 
 
 	<div id="mycarousel" class="carousel slide" data-ride="carousel"
-		data-interval="5000">
+		data-interval="3000">
 		<ol class="carousel-indicators">
 			<li data-target-="#mycarousel" data-slide-to="0" class="active"></li>
 			<li data-target-="#mycarousel" data-slide-to="1"></li>
@@ -13,13 +13,22 @@
 
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="<sc:url value="/resources/images/iphone8.jpg"/>" style="margin:auto;width:75%;height:300px">
+				<img src="<sc:url value="/resources/images/mobile.png"/>" style="margin:auto;width:100%;height:500px">
+				<div class="carousel-caption">
+        <h2>MOBILE</h2>
+      </div>
 			</div>
 			<div class="item">
-				<img src="<sc:url value="/resources/images/iphonex.jpg"/>" style="margin:auto;width:75%;height:300px">
+				<img src="<sc:url value="/resources/images/laptopcarousel.jpg"/>" style="margin:auto;width:100%;height:500px">
+				<div class="carousel-caption">
+        <h2>LAPTOP</h2>
+      </div>
 			</div>
 			<div class="item">
-				<img src="<sc:url value="/resources/images/oneplus_5.jpeg"/>" style="margin:auto;width:75%;height:300px">
+				<img src="<sc:url value="/resources/images/tv.jpg"/>" style="margin:auto;width:100%;height:500px">
+				<div class="carousel-caption">
+        <h2>TELEVISION</h2>
+      </div>
 			</div>
 		</div>
 		<!-- Left and right controls -->

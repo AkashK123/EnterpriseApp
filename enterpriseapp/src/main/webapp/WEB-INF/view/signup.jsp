@@ -29,8 +29,8 @@
 					<form:form class="form-horizontal" method="post" modelAttribute="registrationForm">
 						
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Name</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Name</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<form:input type="text" required="true" class="form-control" path="name"  placeholder="Enter your Name"/>
@@ -40,8 +40,8 @@
 		
 	
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Email</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Email</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 									<form:input type="email" class="form-control" path="email"  placeholder="Enter your Email"/>
@@ -51,8 +51,8 @@
 	
 	
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Contact</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Contact</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
 									<form:input type="text" required="true" class="form-control" path="contact"  placeholder="Enter your Contact"/>
@@ -62,8 +62,8 @@
 	
 	
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Gender</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Gender</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<form:radiobutton class="active" path = "gender" value = "Male" label = "Male" /><i class="fa fa-male fa" aria-hidden="true"></i>
 									<form:radiobutton path = "gender" value = "Female" label = "Female" /><i class="fa fa-female fa" aria-hidden="true"></i>
@@ -73,8 +73,8 @@
 						</div>
 	
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Date of birth</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Date of birth</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
 									<form:input type="text" required="true" class="form-control" path="dob"  placeholder="Enter your Contact"/>
@@ -83,8 +83,8 @@
 						</div>
 	
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Country</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Country</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-flag fa" aria-hidden="true"></i></span>
 									<form:input type="text" required="true" class="form-control" path="country"  placeholder="Enter your Contact"/>
@@ -93,8 +93,8 @@
 						</div>
 	
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Address</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Address</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
 									<form:textarea type="text" required="true" class="form-control" path="address"  placeholder="Enter your Contact"/>
@@ -104,8 +104,8 @@
 	
 	
 						<div class="form-group">
-							<label  class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
+							<label  class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Password</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 									<form:input required="true" type="password" class="form-control" path="Password"  placeholder="Enter your Password"/>
@@ -114,8 +114,8 @@
 						</div>
 
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
+							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Confirm Password</label>
+							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 									<form:input required="true" type="password" class="form-control" path="confirmPassword"  placeholder="Confirm your Password"/>

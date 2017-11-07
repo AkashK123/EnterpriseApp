@@ -5,14 +5,19 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="navbar navbar-inverse navbar-static-bottom" style="background:black;">
+<div class="navbar navbar-inverse navbar-static-bottom" style="background:navyblue;">
 <div class="container">
 <div class="navbar-text pull-left">
 Email:akashkumarmohan1751@gmail.com
 </div>
 <div class="navbar-text pull-right">
- <i class="fa fa-facebook fa-1x" aria-hidden="true"></i>
- <i class="fa fa-google-plus " aria-hidden="true"></i>
+ <ul class="nav navbar-nav navbar-right">
+      <li><a href="https://www.facebook.com/login/"><i class="fa fa-facebook-official" style="font-size:24px"></i></a></li>
+      <li><a href="https://twitter.com/login"><i class="fa fa-twitter" style="font-size:24px"></i></a></li>
+      <li><a href="https://www.plus.google.com"><i class="fa fa-google-plus" style="font-size:24px"></i></a></li>
+    
+      
+</ul>
  
 </div>
 </div>

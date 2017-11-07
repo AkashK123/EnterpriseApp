@@ -25,7 +25,7 @@ public class ProductDaoImpl implements ProductDao
 
 	public void updateProduct(Product product) 
 	{
-		sessionFactory.getCurrentSession().update(product);
+		sessionFactory.getCurrentSession().saveOrUpdate(product);
 	}
 
 	public void deleteProduct(int id) 
@@ -46,5 +46,21 @@ public class ProductDaoImpl implements ProductDao
 	{
 		Product product=sessionFactory.getCurrentSession().get(Product.class, id);
 		return product;
+	}
+
+	public List<Product> retrieveProductByCategory(int id) {
+	
+		Query query=sessionFactory.getCurrentSession().createQuery("from Product where categoryId= :catid");
+		query.setInteger("catid", id);
+		List<Product> list=query.list();
+		return list;
+	}
+
+	public List<Product> retrieveProductByName(String searchname) {
+		
+		Query query=sessionFactory.getCurrentSession().createQuery("from Product where productName like '%"+searchname+"%' ");
+		List<Product> list=query.list();
+		
+		return list;
 	}
 }

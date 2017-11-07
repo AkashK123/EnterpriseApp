@@ -13,6 +13,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/view/header.jsp" %>
+<br/><br/><br/>
 <div class="container">
 
 <c:if test="${not empty message }">
@@ -56,9 +57,10 @@
          </div>
         
          <div class="form-group">
-          <div class="col-md-offset-4 col-md-8">
+          <div class="col-md-offset-3 col-md-8">
            
-           <input type="submit" value="Login" class="btn btn-primary"/>
+           <button type="submit" value="Login" class="btn btn-primary">LOGIN</button>
+           <a href="<c:url value="signup" />" class="btn btn-primary">Create Account</a>
           </div>
          </div>
         </form>
@@ -69,6 +71,7 @@
     </div>
    </div>
 
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <%@ include file="/WEB-INF/view/footer.jsp" %>
 </body>
 </html>

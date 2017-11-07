@@ -10,4 +10,6 @@ public interface ProductDao {
 	public void deleteProduct(int id);
 	public List<Product> retrieveProduct();
 	public Product getProduct(int id);
+	public List<Product> retrieveProductByCategory(int id);
+	public List<Product> retrieveProductByName(String searchname);
 }

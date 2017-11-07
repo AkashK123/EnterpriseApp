@@ -107,12 +107,21 @@ public String deleteProductOperation(@PathVariable("id") int id,Model m,HttpSess
 }
 
 @RequestMapping(value="/singleproductdetails{id}")
-public String viewsingleproduct(@PathVariable("id") int id,Model m)
+public String viewsingleproduct(@PathVariable("id") int id,Model m,HttpSession hs)
 {
-	System.out.println("hello");
 	Product product=productDao.getProduct(id);
 	m.addAttribute("productdetails", product);
+	refreshProductSession(hs, m);
 	return "singleproductdetails";
+}
+
+@RequestMapping(value="/productcategory{id}")
+public String viewProductByCategory(@PathVariable("id") int id,Model m)
+{
+	List<Product> list=productDao.retrieveProductByCategory(id);
+	m.addAttribute("productList", list);
+	m.addAttribute("product", new Product());
+	return "viewproduct";
 }
 
 }

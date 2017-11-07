@@ -12,6 +12,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	<context:component-scan base-package="com.project.*" />
 	<http>
 		<intercept-url pattern="/admin*" access="hasRole('ADMIN')" />
+		<intercept-url pattern="/cart*" access="hasRole('USER')" />
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login"/>
 		<access-denied-handler error-page="/accessdenied"/>
@@ -21,7 +22,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 	<authentication-manager>
 <authentication-provider>
 	<jdbc-user-service data-source-ref="dataSource"
-	users-by-username-query="select email,password,'true' as enabled from USER_DETAILS where email=?"
+	users-by-username-query="select email,password,enabled from USER_DETAILS where email=?"
 	authorities-by-username-query="select email,role from USER_DETAILS where email=?"
 	/>
 	

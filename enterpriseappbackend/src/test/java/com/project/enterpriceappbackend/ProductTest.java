@@ -105,4 +105,35 @@ public class ProductTest {
 		}
 		
 	}
+	@Ignore
+	@Test
+	public void retrieveProductByCategory() 
+	{
+		try{
+		List<Product> list=productDao.retrieveProductByCategory(1);
+		for (Product product1: list) 
+		{
+			System.out.println(product1.getProductName());
+		}}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+	
+	
+	@Test
+	public void retrieveProductBySearchName() 
+	{
+		try{
+		List<Product> list=productDao.retrieveProductByName("iphone");
+		for (Product product1: list) 
+		{
+			System.out.println(product1.getProductName());
+		}}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
 }

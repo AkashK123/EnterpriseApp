@@ -18,8 +18,6 @@ public class RegistrationForm
 	String gender;
 	String country;
 	String address;
-	@NotNull
-	@Size(min=6,max=15,message="Your password must contain 6 character and less than 15")
 	String Password;
 	@Transient
 	String confirmPassword;

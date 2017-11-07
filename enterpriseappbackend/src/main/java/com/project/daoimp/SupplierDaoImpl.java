@@ -22,7 +22,7 @@ public class SupplierDaoImpl implements SupplierDao
 	}
 
 	public void updateSupplier(Supplier supplier) {
-		sessionFactory.getCurrentSession().update(supplier);
+		sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 	}
 
 	public void deleteSupplier(int id) 

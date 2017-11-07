@@ -17,6 +17,11 @@
 		<ol class="breadcrumb">
 			<li><a href="home">Home</a></li>
 			<li><a href="viewproduct">Products</a></li>
+			<c:forEach var="list" items="${categoryList}">
+			<c:if test="${list.id==productdetails.categoryId}">
+			<li><a href="productcategory${list.id}">${list.categoryName}</a></li>
+			</c:if>
+			</c:forEach>
 			<li class="active">${productdetails.productName}</li>
 		</ol>
 	</div>
@@ -25,7 +30,7 @@
 <div class="row">
 <div class="col-sm-4">
 <div class="thumbnail">
-<img src="<c:url value="/resources/images/product/${productdetails.id}.jpg"/>" class="img img-responsive"/>
+<img src="<c:url value="/resources/images/product/${productdetails.id}.jpg"/>"  height="2000" width="2000" class="img img-responsive"/>
 </div>
 </div>
 <div class="col-sm-8">
@@ -42,13 +47,15 @@
 	
 	<c:choose>
 		<c:when test="${productdetails.productStock < 1}">
-		<h6>Qty. Available: <span style="color:red">Out of Stock!</span></h6>
+		<h3><span style="color:red">Out of Stock!</span></h3>
 		</c:when>
 		<c:otherwise>				
 		<h6>Qty. Available: ${productdetails.productStock}</h6>
 		</c:otherwise>
 	</c:choose>			
 
+
+<br/><br/>
 
 <security:authorize access="hasRole('USER')">
 	<c:choose>
@@ -57,13 +64,25 @@
 			<span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</strike></a>
 		</c:when>
 		<c:otherwise>				
-			<a href="#" class="btn btn-success">
-			<span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+		<form action="cartadd${productdetails.id}">
+			<label >Quantity</label>
+			<input type="number" name=quant value="1">
+			<br/><br/>
+			<button type="submit" class="btn btn-success">ADD to CART</button>
+			</form>
 		</c:otherwise>
 	</c:choose>
 
-	<a href="viewproduct" class="btn btn-primary"><strong>BACK</strong></a>
 </security:authorize>
+
+<security:authorize access="hasRole('ADMIN')">
+	<a href="<c:url value="adminupdateproduct${productdetails.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
+<a href="<c:url value="admindeleteproduct${productdetails.id}" />" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>DELETE</a>
+</security:authorize>
+<br/>
+<a href="viewproduct" class="btn btn-primary"><strong>BACK</strong></a>
+
+
 
 </div>
 
