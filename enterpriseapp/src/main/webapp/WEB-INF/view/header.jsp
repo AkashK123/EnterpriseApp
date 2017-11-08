@@ -43,7 +43,7 @@
 </security:authorize>
 
 <security:authorize access="hasRole('USER')">
-<li ><a href="cartpage" >CART</a></li>
+<li ><a href="cartpage" class="btn btn-info"><span style="color:white" class="glyphicon glyphicon-shopping-cart">CART</span></a></li>
 </security:authorize>
 
 </ul>

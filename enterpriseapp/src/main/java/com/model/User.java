@@ -7,6 +7,9 @@ public class User implements Serializable
 	private static final long serialVersionUID = 1L;
 String name;
 String email;
+String address;
+String contact;
+String country;
 String role;
 
 
@@ -14,12 +17,19 @@ String role;
 	{
 	}
 
-	public User(String name, String email, String role) {
-	super();
-	this.name = name;
-	this.email = email;
-	this.role = role;
-}
+
+
+	public User(String name, String email, String address, String contact, String country, String role) 
+	{
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.contact = contact;
+		this.country = country;
+		this.role = role;
+	}
+
+
 
 	public String getName() {
 		return name;
@@ -43,6 +53,41 @@ String role;
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+
+	public String getAddress() {
+		return address;
+	}
+
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+
+
+	public String getContact() {
+		return contact;
+	}
+
+
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+
+
+	public String getCountry() {
+		return country;
+	}
+
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	

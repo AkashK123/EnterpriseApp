@@ -86,6 +86,21 @@ public class CartController {
 	}
 	
 	
+	@RequestMapping(value="/checkout")
+	public String checkout(HttpServletRequest request,Model m)
+	{
+		String total=request.getParameter("total");
+		m.addAttribute("total", total);
+		return "checkout";
+	}
+	
+	@RequestMapping(value="/invoice")
+	public String invoice(HttpServletRequest request,Model m)
+	{
+		String total=request.getParameter("total");
+		m.addAttribute("total", total);
+		return "invoice";
+	}
 	
 	
 	

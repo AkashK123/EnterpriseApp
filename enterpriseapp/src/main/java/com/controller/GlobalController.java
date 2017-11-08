@@ -37,6 +37,9 @@ public class GlobalController
 			user.setEmail(registrationForm.getEmail());
 			user.setName(registrationForm.getName());
 			user.setRole(registrationForm.getRole());
+			user.setAddress(registrationForm.getAddress());
+			user.setContact(registrationForm.getContact());
+			user.setCountry(registrationForm.getCountry());
 			
 			session.setAttribute("usermodel", user);
 			return user;

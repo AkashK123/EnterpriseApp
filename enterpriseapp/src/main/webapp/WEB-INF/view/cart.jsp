@@ -83,9 +83,18 @@
                             <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
                         </a></td>
                         <td>
-                        <button type="button" class="btn btn-success">
+                        
+                        <c:if test="${not empty usercartlist}">
+						<form action="checkout" method="post">
+							<input type="hidden" value="${total}" name="total" />
+							
+							<button type="submit" class="btn btn-success">
                             Checkout <span class="glyphicon glyphicon-play"></span>
-                        </button></td>
+                        </button>
+						</form>
+                        </c:if>
+                        
+                        </td>
                     </tr>
                 </tbody>
             </table>
