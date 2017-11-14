@@ -13,19 +13,19 @@
 
 		<div class="carousel-inner">
 			<div class="item active">
-				<img src="<sc:url value="/resources/images/mobile.png"/>" style="margin:auto;width:100%;height:500px">
+				<img src="<sc:url value="/resources/images/mobile.png"/>" width="100%" height="200px" style="margin:auto">
 				<div class="carousel-caption">
         <h2>MOBILE</h2>
       </div>
 			</div>
 			<div class="item">
-				<img src="<sc:url value="/resources/images/laptopcarousel.jpg"/>" style="margin:auto;width:100%;height:500px">
+				<img src="<sc:url value="/resources/images/laptopcarousel.jpg"/>" width="100%" height="200px" style="margin:auto">
 				<div class="carousel-caption">
         <h2>LAPTOP</h2>
       </div>
 			</div>
 			<div class="item">
-				<img src="<sc:url value="/resources/images/tv.jpg"/>" style="margin:auto;width:100%;height:500px">
+				<img src="<sc:url value="/resources/images/tv.jpg"/>" width="100%" height="200px" style="margin:auto">
 				<div class="carousel-caption">
         <h2>TELEVISION</h2>
       </div>

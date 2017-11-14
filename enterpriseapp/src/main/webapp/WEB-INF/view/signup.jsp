@@ -14,7 +14,7 @@
 		<div class="container">
 		<c:if test="${match.equals('noperfectmatch')}">
 			<div class="alert alert-danger">
-  			<strong>Password and Confirm password mismatch</strong>
+  			<strong>Password and Confirm password does not match</strong>
 			</div>
 		</c:if>
 		
@@ -44,7 +44,7 @@
 							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<form:input type="email" class="form-control" path="email"  placeholder="Enter your Email"/>
+									<form:input type="email" required="true" class="form-control" path="email"  placeholder="Enter your Email"/>
 								</div>
 							</div>
 						</div>
@@ -67,7 +67,7 @@
 								<div class="input-group">
 									<form:radiobutton class="active" path = "gender" value = "Male" label = "Male" /><i class="fa fa-male fa" aria-hidden="true"></i>
 									<form:radiobutton path = "gender" value = "Female" label = "Female" /><i class="fa fa-female fa" aria-hidden="true"></i>
-									<form:radiobutton path = "gender" value = "Other" label = "Transgender" /><i class="fa fa-genderless fa" aria-hidden="true"></i>
+									<form:radiobutton path = "gender" value = "Other" label = "Transgender" />
 								</div>
 							</div>
 						</div>
@@ -76,8 +76,8 @@
 							<label class="col-xs-offset-1 cols-xs-2 col-sm-offset-1 cols-sm-2 control-label">Date of birth</label>
 							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<form:input type="text" required="true" class="form-control" path="dob"  placeholder="Enter your Contact"/>
+									<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+									<form:input type="text" required="true" class="form-control" path="dob"  placeholder="Enter your Date of Birth"/>
 								</div>
 							</div>
 						</div>
@@ -87,7 +87,7 @@
 							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-flag fa" aria-hidden="true"></i></span>
-									<form:input type="text" required="true" class="form-control" path="country"  placeholder="Enter your Contact"/>
+									<form:input type="text" required="true" class="form-control" path="country"  placeholder="Enter your Country"/>
 								</div>
 							</div>
 						</div>
@@ -97,7 +97,7 @@
 							<div class="col-xs-offset-1 cols-xs-5 col-sm-offset-1 cols-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
-									<form:textarea type="text" required="true" class="form-control" path="address"  placeholder="Enter your Contact"/>
+									<form:textarea type="text" required="true" class="form-control" path="address"  placeholder="Enter your Address"/>
 								</div>
 							</div>
 						</div>

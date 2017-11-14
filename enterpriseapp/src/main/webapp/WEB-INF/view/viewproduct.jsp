@@ -10,6 +10,8 @@
 
 <%@ include file="/WEB-INF/view/header.jsp" %>
 <security:authorize access="hasRole('ADMIN')">
+<c:if var="var" test="${status.equals('update')}"/>
+<c:if test="${var==true}">
 <center>
 <h1>PRODUCT MODULE</h1>
 <form:form enctype="multipart/form-data" modelAttribute="product" class="form-horizontal">
@@ -80,6 +82,8 @@
 <button type="submit" class="btn btn-primary navbar-inverse" formaction="adminupdateproductdata">Update Product</button>
 </form:form>
 </center>
+</c:if>
+
 </security:authorize>
 
 <div class="container">

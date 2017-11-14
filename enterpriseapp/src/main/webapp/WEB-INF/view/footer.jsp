@@ -8,9 +8,11 @@
 <div class="navbar navbar-inverse navbar-static-bottom" style="background:navyblue;">
 <div class="container">
 <div class="navbar-text pull-left">
+Author:Akash Kumar C.V.Mohan
+&nbsp;&nbsp;
 Email:akashkumarmohan1751@gmail.com
 </div>
-<div class="navbar-text pull-right">
+
  <ul class="nav navbar-nav navbar-right">
       <li><a href="https://www.facebook.com/login/"><i class="fa fa-facebook-official" style="font-size:24px"></i></a></li>
       <li><a href="https://twitter.com/login"><i class="fa fa-twitter" style="font-size:24px"></i></a></li>
@@ -19,7 +21,7 @@ Email:akashkumarmohan1751@gmail.com
       
 </ul>
  
-</div>
+
 </div>
 </div>
 </body>

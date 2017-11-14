@@ -28,13 +28,18 @@ public class SignupController
 			registrationForm.setRole("ROLE_USER");
 			registrationForm.setEnabled("TRUE");
 			registrationFormDao.createUser(registrationForm);
+			m.addAttribute("registrationForm", new RegistrationForm());
+			m.addAttribute("weclome", "Welcome to Homeshop 18 "+registrationForm.getName()+"");
+			return "login";
 		}
 		else
 		{
 			m.addAttribute("match", "noperfectmatch");
+			m.addAttribute("registrationForm", new RegistrationForm());
+			return "signup";
+			
 		}
-		m.addAttribute("registrationForm", new RegistrationForm());
-		return "login";
+		
 	}
 	
 }

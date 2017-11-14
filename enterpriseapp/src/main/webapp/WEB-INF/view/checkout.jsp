@@ -34,19 +34,24 @@
 					</div>
 				</div>
 				<div class='form-row'>
-					&nbsp;&nbsp;<label class='control-label'>Name: </label>&nbsp;${usermodel.name}
+					&nbsp;&nbsp;<label class='control-label'>Name: </label>&nbsp;
+					&nbsp;&nbsp;&nbsp;${usermodel.name}
 				</div>
 				<div class='form-row'>
-					&nbsp;&nbsp;<label class='control-label'>Email: </label>&nbsp;${usermodel.email}
+					&nbsp;&nbsp;<label class='control-label'>Email: </label>&nbsp;
+					&nbsp;&nbsp;&nbsp;${usermodel.email}
 				</div>
 				<div class='form-row'>
-					&nbsp;&nbsp;<label class='control-label'>Phone: </label>&nbsp;${usermodel.contact}
+					&nbsp;&nbsp;<label class='control-label'>Phone: </label>&nbsp;
+					&nbsp;&nbsp;&nbsp;${usermodel.contact}
 				</div>
 				<div class='form-row'>
-					&nbsp;&nbsp;<label class='control-label'>Address: </label>&nbsp;${usermodel.address}
+					&nbsp;&nbsp;<label class='control-label'>Address: </label>&nbsp;
+					<br/>&nbsp;&nbsp;&nbsp;${usermodel.address}
 				</div>
 				<div class='form-row'>
-					&nbsp;&nbsp;<label class='control-label'>Country: </label>&nbsp;${usermodel.country}
+					&nbsp;&nbsp;<label class='control-label'>Country: </label>&nbsp;
+					&nbsp;&nbsp;&nbsp;${usermodel.country}
 				</div>
 				<div class="col-sm-12 jumbotronTransp" align="center">
 					<div class="head">

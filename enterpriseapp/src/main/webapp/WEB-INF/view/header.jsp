@@ -25,7 +25,7 @@
 <span class="icon-bar"></span>
 </button>
 
-<a class="nav navbar-nav navbar-left navbar-brand" href="#">Homeshop 18</a>
+<a class="nav navbar-nav navbar-left navbar-brand" href="home">Homeshop 18</a>
 <div class="navbar-collapse collapse">
 <ul class=" nav navbar-nav navbar-left"> 
 <li ><a href="home" >Home</a></li>
@@ -65,14 +65,7 @@
 			Hi ${usermodel.name}<span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu" >
-			<security:authorize access="hasRole('USER')">
-			<li>
-				<a href="cartpage">
-					<span class="glyphicon glyphicon-shopping-cart"></span>&#160;
-					<span class="badge">0</span> - &#8377;0.0
-				</a>
-			</li>
-			</security:authorize>		     
+					     
 	<li role="separator" class="divider"></li>	                                   
 		<li id="logout">
 			<a href="${pageContext.request.contextPath}/performlogoutoperation"><span class="glyphicon glyphicon-log-out"></span>Logout</a>

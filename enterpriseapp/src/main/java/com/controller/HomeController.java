@@ -56,7 +56,7 @@ public class HomeController {
 		{
 			m.addAttribute("message", "Invalid Username or password");
 		}
-		
+		m.addAttribute("Message", "Welcome Back User");
 		sessionInitialization(hs);
 		return "login";
 	}
@@ -82,7 +82,7 @@ public class HomeController {
 	@RequestMapping(value="/accessdenied")
 	public String accessdenied(Model m)
 	{
-		m.addAttribute("error","Access for this page is denied for all users");
+		m.addAttribute("error","Your access is not Valid for this");
 		return "error";
 	}
 	

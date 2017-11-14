@@ -24,8 +24,27 @@
 	</div>
 </c:if>
 
+<c:if test="${not empty weclome }">
+	<div class="col-md-offset-3 col-md-6">
+	<div >
+	<center>
+	<span style="color:blue;"><h1>${weclome}</h1></span>
+	</center>
+	</div>
+	</div>
+</c:if>
+
+<c:if test="${not empty Message }">
+	<div class="col-md-offset-3 col-md-6">
+	<div >
+	<center>
+	<span style="color:blue;"><h1>${Message}</h1></span>
+	</center>
+	</div>
+	</div>
+</c:if>
 <div class="row">
-     
+     <br/><br/>
      <div class="col-md-offset-3 col-md-6">
       
       <div class="panel panel-primary">
@@ -71,7 +90,7 @@
     </div>
    </div>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 <%@ include file="/WEB-INF/view/footer.jsp" %>
 </body>
 </html>

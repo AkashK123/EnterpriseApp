@@ -78,6 +78,7 @@
 <security:authorize access="hasRole('ADMIN')">
 	<a href="<c:url value="adminupdateproduct${productdetails.id}" />" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>EDIT</a>
 <a href="<c:url value="admindeleteproduct${productdetails.id}" />" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span>DELETE</a>
+<br/>
 </security:authorize>
 <br/>
 <a href="viewproduct" class="btn btn-primary"><strong>BACK</strong></a>
